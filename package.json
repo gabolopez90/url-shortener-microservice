@@ -1,0 +1,35 @@
+{
+  "name": "url-shortener-microservice",
+  "version": "1.0.0",
+  "description": "For the Free Code Camp Api Project URL Shortener Microservice",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express.js": "^1.0.0",
+    "mongodb": "^3.0.3",
+    "mongoose": "^5.0.7",
+    "node.js": "^0.0.0",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabolopez90/url-shortener-microservice.git"
+  },
+  "keywords": [
+    "fcc",
+    "node.js",
+    "express.js",
+    "api"
+  ],
+  "author": "Gabriel Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabolopez90/url-shortener-microservice/issues"
+  },
+  "homepage": "https://github.com/gabolopez90/url-shortener-microservice#readme"
+}
