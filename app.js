@@ -6,7 +6,7 @@ const shortUrl = require("./models/shortUrl");
 const path = require("path");
 const app = express();
 const shortid = require('shortid');
-var mlab = "mongodb://gabo:user@ds117271.mlab.com:17271/to-do";
+var mlab = process.env.MLAB;
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(bodyParser.json());
@@ -28,14 +28,14 @@ app.get("/new/:url(*)", (req, res)=>{
                 var shortId = shortid.generate().toString();
                 var data = new shortUrl({
                     "originalUrl": urlToShorten,
-                    "shorterUrl": "https://url-shortener-microservice-gabolopez90.c9users.io/" + shortId
+                    "shorterUrl": "https://mesquite-pajama.glitch.me/" + shortId
                 });
                 data.save(err=>{
                     if(err) return res.send("Error saving to database");
                 });
                 res.send({
                     "originalUrl": urlToShorten,
-                    "shorterUrl": "https://url-shortener-microservice-gabolopez90.c9users.io/" + shortId
+                    "shorterUrl": "https://mesquite-pajama.glitch.me/" + shortId
                 });
            }
         });
@@ -47,7 +47,7 @@ app.get("/new/:url(*)", (req, res)=>{
 
 app.get("/:urlToForward", (req, res)=>{
     var shorterUrl = req.params.urlToForward;
-    shortUrl.findOne({"shorterUrl": "https://url-shortener-microservice-gabolopez90.c9users.io/" + shorterUrl}, {_id:0, __v:0}, (err, doc)=>{
+    shortUrl.findOne({"shorterUrl": "https://mesquite-pajama.glitch.me/" + shorterUrl}, {_id:0, __v:0}, (err, doc)=>{
         if(err) return res.send("Unable to connect to the database");
         if(doc){
             var re = new RegExp("^(http|https)://","i");
